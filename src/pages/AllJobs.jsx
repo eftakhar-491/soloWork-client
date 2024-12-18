@@ -1,14 +1,21 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
-
+import axios from "axios";
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9000/jobs")
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs(data);
+    // fetch("http://localhost:9000/jobs")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setJobs(data);
+    //   });
+
+    axios
+      .get("http://localhost:9000/jobs", { withCredentials: true })
+      .then((res) => {
+        setJobs(res.data);
+        console.log(res.data);
       });
   }, []);
   return (
