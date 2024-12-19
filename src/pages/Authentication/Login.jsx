@@ -18,14 +18,14 @@ const Login = () => {
       await signInWithGoogle();
 
       toast.success("Signin Successful");
-      const res = await axios.post(
-        "http://localhost:9000/jwt",
-        {
-          email: "hello@hello.com ",
-          password: "1234",
-        },
-        { withCredentials: true }
-      );
+      // const res = await axios.post(
+      //   "http://localhost:9000/jwt",
+      //   {
+      //     email: "hello@hello.com ",
+      //     password: "1234",
+      //   },
+      //   { withCredentials: true }
+      // );
 
       navigate(from, { replace: true });
     } catch (err) {

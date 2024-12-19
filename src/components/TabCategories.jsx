@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const TabCategories = () => {
   const [allData, setAlldata] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9000/jobs")
+    fetch("http://localhost:9000/jobs", { credentials: "include" })
       .then((res) => res.json())
       .then((data) => {
         setAlldata(data);
@@ -36,8 +36,8 @@ const TabCategories = () => {
         <TabPanel>
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {allData
-              .filter((item) => item.category === "Web Development")
-              .map((item) => (
+              ?.filter((item) => item.category === "Web Development")
+              ?.map((item) => (
                 <JobCard key={item._id} data={item} />
               ))}
           </div>
@@ -46,8 +46,8 @@ const TabCategories = () => {
         <TabPanel>
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {allData
-              .filter((item) => item.category === "Graphics Design")
-              .map((item) => (
+              ?.filter((item) => item.category === "Graphics Design")
+              ?.map((item) => (
                 <JobCard key={item._id} data={item} />
               ))}
           </div>
@@ -56,8 +56,8 @@ const TabCategories = () => {
         <TabPanel>
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {allData
-              .filter((item) => item.category === "Digital Marketing")
-              .map((item) => (
+              ?.filter((item) => item.category === "Digital Marketing")
+              ?.map((item) => (
                 <JobCard key={item._id} data={item} />
               ))}
           </div>

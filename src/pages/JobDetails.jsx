@@ -11,7 +11,7 @@ const JobDetails = () => {
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
-    fetch(`http://localhost:9000/jobs/${id}`)
+    fetch(`http://localhost:9000/jobs/${id}`, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => {
         setJobDetails(data);
